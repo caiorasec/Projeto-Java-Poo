@@ -97,5 +97,6 @@ public class RepositorioCliente {
         if (this.verificaExistencia(cliente) == -1) {
             throw new Exception("O referido cliente não encontra-se cadastrado");
         }
+        this.lista.set(this.verificaExistencia(cliente), cliente);
     }
 }
