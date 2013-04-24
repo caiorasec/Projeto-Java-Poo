@@ -11,6 +11,7 @@ import java.util.ArrayList;
  * @author caio
  */
 public class RepositorioCliente {
+    
     private ArrayList<Cliente> lista;
     private static RepositorioCliente instanciaRep;
     
@@ -28,18 +29,7 @@ public class RepositorioCliente {
     public ArrayList<Cliente> listarTodos() {
         return this.lista;
     }
-    
-    public int verificaExistencia(Cliente cliente) {
-        int retorno = -1;
-        for (int i = 0; i < this.lista.size(); i++) {
-            if (cliente.getCpf().trim().equals(this.lista.get(i).getCpf().trim())) {
-                retorno = 1;
-                break;
-            }
-        }
-        return retorno;
-    }
-    
+        
     public void inserir(Cliente cliente) throws Exception {
         if (cliente == null) {
             throw new Exception("Cliente não foi instanciado");
@@ -98,5 +88,16 @@ public class RepositorioCliente {
             throw new Exception("O referido cliente não encontra-se cadastrado");
         }
         this.lista.set(this.verificaExistencia(cliente), cliente);
+    }
+    
+        public int verificaExistencia(Cliente cliente) {
+        int retorno = -1;
+        for (int i = 0; i < this.lista.size(); i++) {
+            if (cliente.getCpf().trim().equals(this.lista.get(i).getCpf().trim())) {
+                retorno = 1;
+                break;
+            }
+        }
+        return retorno;
     }
 }
